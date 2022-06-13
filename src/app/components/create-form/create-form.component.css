@@ -1,0 +1,18 @@
+@media(max-width:767px) {
+
+  .form {
+    margin: 4.5rem;
+  }
+
+ input[type=text]{
+
+  width: 300px;
+
+ }
+
+}
+
+
+.red-text{
+color: #ff0788;
+}

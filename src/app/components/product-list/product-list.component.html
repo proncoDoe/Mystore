@@ -1,0 +1,41 @@
+<div class="product-container" fxLayout="row wrap" fxLayoutGap.gt-md="40px" fxLayoutAlign="center center">
+
+  <mat-card class="card" *ngFor="let product of products">
+
+    <a routerLink="item-detail/{{ product.id }}">
+      <img class="product-image" src='{{ product.url }}'>
+  </a>
+
+    <mat-card-content>
+      <h4>
+        {{ product.name }}
+      </h4>
+      <h4>
+        $ {{ product.price}}
+       </h4>
+    </mat-card-content>
+    <mat-card-actions>
+      <form (ngSubmit)="onSubmit(product, $event)">
+      <mat-form-field appearance="fill">
+        <!-- <mat-label>Favorite food</mat-label> -->
+
+          <select matNativeControl required class="product-detail form-select" aria-label="Default select example">
+            <option
+                    *ngFor="let product_option of productCount"
+                    [ngValue]="product_option"
+                    [selected]="product_option === '1'">
+                    {{ product_option }}
+                </option>
+          </select>
+      </mat-form-field>
+      <button mat-button mat-raised-button color="primary">Add to cart</button>
+
+    </form>
+
+    </mat-card-actions>
+
+
+  </mat-card>
+
+</div>
+

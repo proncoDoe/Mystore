@@ -1,0 +1,61 @@
+
+   <div class="row">
+
+   </div>
+<form class="form-margin" #f="ngForm"  (ngSubmit)="onSubmit(f)">
+
+  <div class="row">
+    <mat-form-field class="col s12" appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input type="text" name="firstName" [(ngModel)]="firstName" required minlength="5"  matInput placeholder="Ex. Full Name" #nameUser="ngModel" >
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    </mat-form-field>
+
+    <div *ngIf="nameUser.invalid && nameUser.dirty">
+      <div *ngIf="nameUser.errors?.required" class="red-text">
+        Please provide your full name.
+      </div>
+
+    </div>
+
+  </div>
+
+ <div class="row">
+  <mat-form-field class="col s12" appearance="outline">
+    <mat-label>Address</mat-label>
+    <input type="text" name="address" [(ngModel)]="address"  pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required minlength="8"  matInput placeholder="Ex. Address" #nameAdress="ngModel">
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+  </mat-form-field>
+
+  <div *ngIf="nameAdress.invalid && nameAdress.dirty">
+    <div *ngIf="nameAdress.errors?.pattern" class="red-text">
+      Please enter a valid street address.
+    </div>
+
+  </div>
+
+
+ </div>
+
+ <div class="row">
+  <mat-form-field class="col s12" appearance="outline">
+    <mat-label>Credit Card</mat-label>
+    <input type="tel" name="creditCard" #creditCards="ngModel"  matInput placeholder="Ex.Credit Card 16 digit number" [(ngModel)]="creditCard"  minlength="16" pattern="\d*" maxlength="19">
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+  </mat-form-field>
+
+  <div *ngIf="creditCards.invalid && creditCards.dirty">
+    <div *ngIf="creditCards.errors?.pattern" class="red-text">
+      Please enter a valid credit Card.
+    </div>
+
+ </div>
+
+
+ </div>
+
+ <button  type='submit' [disabled]="f.invalid" mat-button mat-raised-button color="primary">Order</button>
+
+
+</form>
+

@@ -1,0 +1,42 @@
+<div *ngIf="cartProducts.length; else noCart" class="product-container" fxLayout="row wrap" fxLayoutGap.gt-md="40px" fxLayoutAlign="center center">
+  <mat-card  class="cart-item-details">
+    <div class="cart-item" *ngFor="let cartProduct of cartProducts">
+      <img class="product-image" src='{{cartProduct.url}}'>
+
+      <div class="cart-panel">
+        <div class="product-item-detail">{{ cartProduct.name}}</div>
+        <div class="product-item-detail">$ {{ cartProduct.price}}</div>
+        <mat-form-field appearance="fill" class="product-item-detail">
+            <select (change)="selectChange(cartProduct.id, $event)"   matNativeControl required>
+              <option
+                    *ngFor="let product_option of productCount"
+                            [ngValue]="product_option"
+                            [selected]="cartProduct.option === product_option">
+                            {{ product_option }}
+                    </option>
+            </select>
+        </mat-form-field>
+        <div class="product-button">
+            <button  class="product-item-detail" (click)="removeCart(cartProduct.id)"   mat-button mat-raised-button color="primary">Remove</button>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="cart-item"><b>Total Price: ${{ totalPrice }}</b></div>
+
+</mat-card>
+
+<mat-card>
+  <app-create-form (confirmationSuccess)="confirmationSuccess($event)"></app-create-form>
+
+</mat-card>
+
+</div>
+
+<ng-template #noCart>
+  <div class="empty-cart-message">
+  Cart is Empty:<a routerLink="/"> add product to cart</a>.
+  </div>
+</ng-template>
+
