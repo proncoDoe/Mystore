@@ -7,7 +7,7 @@
         <div class="product-item-detail">{{ cartProduct.name}}</div>
         <div class="product-item-detail">$ {{ cartProduct.price}}</div>
         <mat-form-field appearance="fill" class="product-item-detail">
-            <select (change)="selectChange(cartProduct.id, $event)"   matNativeControl required>
+            <select (ngModelChange)="selectChange(cartProduct.id, $event)"   matNativeControl required>
               <option
                     *ngFor="let product_option of productCount"
                             [ngValue]="product_option"

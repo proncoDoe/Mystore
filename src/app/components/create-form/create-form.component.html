@@ -1,11 +1,7 @@
-
-   <div class="row">
-
-   </div>
 <form class="form-margin" #f="ngForm"  (ngSubmit)="onSubmit(f)">
 
   <div class="row">
-    <mat-form-field class="col s12" appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Full Name</mat-label>
       <input type="text" name="firstName" [(ngModel)]="firstName" required minlength="5"  matInput placeholder="Ex. Full Name" #nameUser="ngModel" >
       <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -21,7 +17,7 @@
   </div>
 
  <div class="row">
-  <mat-form-field class="col s12" appearance="outline">
+  <mat-form-field appearance="outline">
     <mat-label>Address</mat-label>
     <input type="text" name="address" [(ngModel)]="address"  pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required minlength="8"  matInput placeholder="Ex. Address" #nameAdress="ngModel">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -38,7 +34,7 @@
  </div>
 
  <div class="row">
-  <mat-form-field class="col s12" appearance="outline">
+  <mat-form-field appearance="outline">
     <mat-label>Credit Card</mat-label>
     <input type="tel" name="creditCard" #creditCards="ngModel"  matInput placeholder="Ex.Credit Card 16 digit number" [(ngModel)]="creditCard"  minlength="16" pattern="\d*" maxlength="19">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->

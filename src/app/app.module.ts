@@ -1,7 +1,6 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from  './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -33,7 +32,6 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    FontAwesomeModule,
     MaterialModule,
     HttpClientModule,
     FormsModule
